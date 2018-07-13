@@ -2,7 +2,7 @@ This is a react component school project
 
 To install use
 ```
-    npm install weather-component
+    npm install weather-component-nicolas-lepiez
 ```
 
 Inside the project use
