@@ -17,12 +17,13 @@ class WeatherComponent extends Component {
         };
         darksky = new this.forecast(options);
 
-        darksky.get('48', '1', function(err, res, data){
-            if(err) throw err;
-            this.setState({data: utils.inspect(data)});
-            log('res : ' + utils.inspect(res));
-            log('data : ' + utils.inspect(data));
-        });
+        this.timer = setInterval(() => {
+            this.props.animate().then(() => darksky.get('48', '1', function(err, res, data){
+                if(err) throw err;
+                this.setState({data: utils.inspect(data)});
+            }));
+        }, 3000);
+
     }
 
     render(){
