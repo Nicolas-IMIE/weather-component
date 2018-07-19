@@ -12,7 +12,7 @@ class WeatherComponent extends Component {
 
     componentDidMount(){
         options = {
-            APIKey: "81e7868339d1d1aa55bc025aee4b7f02",
+            APIKey: this.props.APIKey,
             timeout: 1000
         };
         darksky = new this.forecast(options);
@@ -24,6 +24,10 @@ class WeatherComponent extends Component {
             }));
         }, 3000);
 
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timer);
     }
 
     render(){
