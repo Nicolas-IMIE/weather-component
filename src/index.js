@@ -26,6 +26,10 @@ class WeatherComponent extends Component {
 
     }
 
+    componentWillUnmount() {
+      clearInterval(this.timer);
+    }
+
     render(){
         return (
           <div>
